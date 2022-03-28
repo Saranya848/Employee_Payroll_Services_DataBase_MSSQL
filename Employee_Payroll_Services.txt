@@ -31,4 +31,18 @@ mysql> show databases;
 
 mysql> use payroll_services
 Database changed
+mysql> Create Table employee_payroll(id int, name char(50), salary double, startdate date);
+Query OK, 0 rows affected (2.17 sec)
+
+mysql> desc employee_payroll;
++-----------+----------+------+-----+---------+-------+
+| Field     | Type     | Null | Key | Default | Extra |
++-----------+----------+------+-----+---------+-------+
+| id        | int      | YES  |     | NULL    |       |
+| name      | char(50) | YES  |     | NULL    |       |
+| salary    | double   | YES  |     | NULL    |       |
+| startdate | date     | YES  |     | NULL    |       |
++-----------+----------+------+-----+---------+-------+
+4 rows in set (0.15 sec)
+
 mysql>
