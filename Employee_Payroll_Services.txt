@@ -62,4 +62,16 @@ Query OK, 1 row affected (0.18 sec)
 mysql> Insert into employee_payroll(name, salary, startdate) values ('Charlie','380000','2019-6-16');
 Query OK, 1 row affected (0.08 sec)
 
+mysql> select * from employee_payroll;
++------+---------+--------+------------+
+| id   | name    | salary | startdate  |
++------+---------+--------+------------+
+| NULL | Bill    | 310000 | 2010-06-16 |
+| NULL | Harsha  | 340000 | 2012-06-17 |
+| NULL | Terisa  | 240000 | 2012-06-18 |
+| NULL | Saranya | 236000 | 2012-06-18 |
+| NULL | Charlie | 380000 | 2019-06-16 |
++------+---------+--------+------------+
+5 rows in set (0.03 sec)
+
 mysql>
