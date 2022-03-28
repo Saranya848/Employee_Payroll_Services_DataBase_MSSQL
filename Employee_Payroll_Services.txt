@@ -45,4 +45,21 @@ mysql> desc employee_payroll;
 +-----------+----------+------+-----+---------+-------+
 4 rows in set (0.15 sec)
 
+mysql> Insert into employee_payroll(name,salary,start_date) values ('Bill','310000','2010-6-16');
+ERROR 1054 (42S22): Unknown column 'start_date' in 'field list'
+mysql> Insert into employee_payroll(name, salary, startdate) values ('Bill','310000','2010-6-16');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> Insert into employee_payroll(name, salary, startdate) values ('Harsha','340000','2012-6-17');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> Insert into employee_payroll(name, salary, startdate) values ('Terisa','240000','2012-6-18');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> Insert into employee_payroll(name, salary, startdate) values ('Saranya','236000','2012-6-18');
+Query OK, 1 row affected (0.18 sec)
+
+mysql> Insert into employee_payroll(name, salary, startdate) values ('Charlie','380000','2019-6-16');
+Query OK, 1 row affected (0.08 sec)
+
 mysql>
