@@ -335,3 +335,58 @@ mysql> desc employee_payroll;
 | startdate  | date         | YES  |     | NULL    |       |
 +------------+--------------+------+-----+---------+-------+
 8 rows in set (0.33 sec)
+
+********************************************************************************************
+UC9: Ability to extend employee_payroll table to have Basic Pay, Deductions, Taxable Pay, Income Tax, Net Pay.
+
+mysql> Alter table employee_payroll rename column salary to BasicPay ;
+Query OK, 0 rows affected (0.56 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Alter table employee_payroll add column Deductions double not null after BasicPay ;
+Query OK, 0 rows affected (1.65 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Alter table employee_payroll add column TaxablePay double not null after Deductions ;
+Query OK, 0 rows affected (1.68 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> Alter table employee_payroll add column IncomeTax double not null after TaxablePay ;
+Query OK, 0 rows affected (1.63 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> Alter table employee_payroll add column NetPay double not null after IncomeTax ;
+Query OK, 0 rows affected (1.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc employee_payroll;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| id         | int          | YES  |     | NULL    |       |
+| name       | char(50)     | YES  |     | NULL    |       |
+| phoneNum   | varchar(200) | YES  |     | NULL    |       |
+| Address    | varchar(200) | YES  |     | NULL    |       |
+| Department | varchar(200) | YES  |     | NULL    |       |
+| gender     | char(1)      | YES  |     | NULL    |       |
+| BasicPay   | double       | YES  |     | NULL    |       |
+| Deductions | double       | NO   |     | NULL    |       |
+| TaxablePay | double       | NO   |     | NULL    |       |
+| IncomeTax  | double       | NO   |     | NULL    |       |
+| NetPay     | double       | NO   |     | NULL    |       |
+| startdate  | date         | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+12 rows in set (0.10 sec)
+
+mysql> select * from employee_payroll;
++------+---------+----------+---------+------------+--------+----------+------------+------------+-----------+--------+------------+
+| id   | name    | phoneNum | Address | Department | gender | BasicPay | Deductions | TaxablePay | IncomeTax | NetPay | startdate  |
++------+---------+----------+---------+------------+--------+----------+------------+------------+-----------+--------+------------+
+|    1 | Bill    | NULL     | NULL    | NULL       | M      |   310000 |          0 |          0 |         0 |      0 | 2010-06-16 |
+|    2 | Harsha  | NULL     | NULL    | NULL       | M      |   340000 |          0 |          0 |         0 |      0 | 2012-06-17 |
+|    3 | Terisa  | NULL     | NULL    | NULL       | F      |   240000 |          0 |          0 |         0 |      0 | 2012-06-18 |
+|    4 | Saranya | NULL     | NULL    | NULL       | F      |   236000 |          0 |          0 |         0 |      0 | 2012-06-18 |
+|    5 | Charlie | NULL     | NULL    | NULL       | M      |   380000 |          0 |          0 |         0 |      0 | 2019-06-16 |
++------+---------+----------+---------+------------+--------+----------+------------+------------+-----------+--------+------------+
+5 rows in set (0.00 sec)
